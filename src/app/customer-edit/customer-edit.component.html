@@ -1,0 +1,41 @@
+<div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="container page-title">
+        <div class="row">
+            <div class="col-md-3">
+                <h3> Add Customer</h3>
+            </div>
+            <div class="col-md-4 offset-md-3">
+                <button id="page-buttons"><a routerLink="/customer-list" routerLinkActive="active">View All</a></button>
+            </div>
+        </div>
+    </div>
+
+    <form class="row g-3" id="page-forms" [formGroup]="customerForm" (ngSubmit)="addCustomer()">
+        <div class="col-md-12">
+            <label for="inputName" class="form-label">Full-Name</label>
+            <input type="text" class="form-control" id="inputName" formControlName="cust_name">
+        </div>
+        <div class="col-md-6">
+            <label for="inputEmail" class="form-label">Email</label>
+            <input type="text" class="form-control" id="inputEmail" formControlName="cust_email">
+        </div>
+        <div class="col-md-6">
+            <label for="inputNumber" class="form-label">Phone Number</label>
+            <input type="number" class="form-control" id="inputNumber" formControlName="cust_phone">
+        </div>
+        <!-- <div class="col-md-6">
+            <label for="inputState" class="form-label">State</label>
+            <input type="text" class="form-control" id="inputState" formControlName="cust_address">
+          </div> -->
+        <div class="col-md-12">
+            <label for="inputAddress" class="form-label">Address</label>
+            <input type="text" class="form-control" id="inputAddress" formControlName="cust_address">
+        </div>
+        <div class="col-md-6">
+            <button id="buttom-buttons" class="cancel-button">Cancel</button>
+        </div>
+        <div class="col-md-6">
+            <button id="buttom-buttons" class="submit-button">Submit</button>
+        </div>
+    </form>
+</div>

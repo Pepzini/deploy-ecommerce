@@ -1,0 +1,157 @@
+.card {
+  padding: 10px;
+  margin: 20px 10px;
+  box-shadow: 9px 6px 20px 0px rgba(97, 86, 86, 0.69);
+  -webkit-box-shadow: 9px 6px 60px 0px rgba(97, 86, 86, 0.69);
+  -moz-box-shadow: 9px 6px 60px 0px rgba(97, 86, 86, 0.69);
+}
+
+:root{
+  --first-color: #e0aaff;
+  --second-color: #c77dff;
+  --third-color: #9d4edd;
+  --fourth-color: #7b2cbf;
+  --fifth-color: #5a189a;
+  --six-color: #3c096c;
+  --seventh-color: #240046;
+  --eight-color: #06010e;
+}
+body {
+  font-size: .875rem;
+}
+
+.fas {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  /* rtl:raw:
+  right: 0;
+  */
+  bottom: 0;
+  /* rtl:remove */
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 48px 0 0; /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    top: 5rem;
+  }
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  font-size: 17px;
+  color: #fff;
+  padding-top: 1.5em;
+}
+
+.sidebar .nav-link .fas {
+  margin-right: 10px;
+  color: #fff;
+}
+
+.sidebar .nav-link.active {
+  color: #5a189a;
+}
+
+.sidebar .nav-link:hover .fas,
+.sidebar .nav-link.active .fas {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: 1rem;
+  background-color: var(--six-color);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.navbar .navbar-toggler {
+  top: .25rem;
+  right: 1rem;
+}
+
+.navbar .form-control {
+  padding: .75rem 1rem;
+  border-width: 0;
+  border-radius: 0;
+}
+
+nav{
+  background-color: #0d041d;
+}
+
+.form-control-dark {
+  color: #fff;
+  background-color: var(--eight-color);
+  border-radius: 5px;
+}
+
+.form-control-dark:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+.page-title{
+  position: relative;
+  margin: 2em 0;
+}
+#page-forms{
+  margin: 0 2em;
+}
+#page-buttons{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em 2em;
+  margin-right: 20px;
+  border: none;
+  background-color: var(--fifth-color);
+  color: #e0aaff;
+  border-radius: 7px;
+}
+#buttom-buttons{
+ width: 100%;
+ border-radius: 7px;
+ border: none;
+ padding: 10px 20px;
+ text-transform: capitalize;
+ font-size: 17px;
+}
+.cancel-button{
+  background-color: #bdbcbc;
+}
+.submit-button{
+  background-color: #5a189a;
+  color: #fff;
+}

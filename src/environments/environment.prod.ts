@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiURL: 'http://localhost/nini-commerce-api/index.php/'
 };

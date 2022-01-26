@@ -38,7 +38,6 @@ body {
   */
   bottom: 0;
   /* rtl:remove */
-  left: 0;
   z-index: 100; /* Behind the navbar */
   padding: 48px 0 0; /* Height of navbar */
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
@@ -154,4 +153,16 @@ nav{
 .submit-button{
   background-color: #5a189a;
   color: #fff;
+}
+/* General styling for all links */
+a {
+  color: #fff;
+  text-decoration: none;
+}
+a:hover{
+  color: #e0aaff;
+}
+/* Genral styling for all buttons */
+button:active {
+  transform: scale(0.98);
 }

@@ -1,0 +1,46 @@
+<div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="container page-title">
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Products</h3>
+            </div>
+            <div class="col-md-4 offset-md-3">
+                <button id="page-buttons">
+                    <a routerLink="/product-list" routerLinkActive="active">View All</a>
+                </button>
+            </div>
+        </div>
+    </div>
+    <form class="row g-3"[formGroup]="orderForm" (ngSubmit)="addOrder()">
+        <div class="col-md-6">
+          <label for="inputCustomer" class="form-label">Customer</label>
+          <select id="inputCustomer" class="form-control" formControlName="order_customer">
+            <option selected>Choose</option>
+            <option *ngFor="let customer of customers; let i = index" [value]="customer.cust_id">
+              {{ customer.cust_name }}
+            </option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="inputProduct" class="form-label">Product</label>
+          <select id="inputProduct" class="form-control" formControlName="order_product">
+            <option selected>Choose</option>
+            <option *ngFor="let product of products" [value]="product.product_id">{{ product.product_name}}</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <label for="inputQuantity" class="form-label">Quantity</label>
+          <input type="number" class="form-control" id="inputQuantity" min="1" formControlName="order_quantity" />
+        </div>
+        <div class="col-12">
+          <label for="inputRemarks" class="form-label">Remarks (Optional)</label>
+          <textarea class="form-control" id="inputRemarks" placeholder="Write anything" formControlName="order_remarks"></textarea>
+        </div>
+        <div class="col-md-6">
+            <button id="buttom-buttons" class="cancel-button">Cancel</button>
+        </div>
+        <div class="col-md-6">
+            <button type="submit" id="buttom-buttons" class="submit-button">Submit</button>
+        </div>
+      </form>
+</div>

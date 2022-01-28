@@ -1,0 +1,42 @@
+<div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="container page-title">
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Products</h3>
+            </div>
+            <div class="col-md-4 offset-md-3">
+                <button id="page-buttons">
+                    <a routerLink="/product-list" routerLinkActive="active">View All</a>
+                </button>
+            </div>
+        </div>
+    </div>
+    <form class="row g-3" [formGroup]="productForm" (ngSubmit)="addProduct()">
+        <div class="col-md-6">
+            <label for="inputName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="inputName" formControlName="product_name">
+        </div>
+        <div class="col-md-6">
+            <label for="inputCategory" class="form-label">Category</label>
+            <input type="text" class="form-control" id="inputCategory" formControlName="product_category">
+        </div>
+        <div class="col-md-6">
+            <label for="inputOrigin" class="form-label">Origin</label>
+            <input type="text" class="form-control" id="inputText" formControlName="product_origin">
+        </div>
+        <!-- <div class="col-md-6">
+            <label for="inputState" class="form-label">State</label>
+            <input type="text" class="form-control" id="inputState" formControlName="product_address">
+          </div> -->
+        <div class="col-md-6">
+            <label for="inputFragrance" class="form-label">Fragrance</label>
+            <input type="text" class="form-control" id="inputAddress" formControlName="product_fragrance">
+        </div>
+        <div class="col-md-6">
+            <button id="buttom-buttons" class="cancel-button">Cancel</button>
+        </div>
+        <div class="col-md-6">
+            <button type="submit" id="buttom-buttons" class="submit-button">Submit</button>
+        </div>
+    </form>
+</div>

@@ -13,6 +13,8 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
 import { CustomerEditComponent } from './customer-edit/customer-edit.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ProductEditComponent } from './product-edit/product-edit.component';
+import { OrderEditComponent } from './order-edit/order-edit.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ProductListComponent } from './product-list/product-list.component';
     CustomerListComponent,
     CustomerEditComponent,
     OrderListComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductEditComponent,
+    OrderEditComponent
   ],
   imports: [
     BrowserModule,

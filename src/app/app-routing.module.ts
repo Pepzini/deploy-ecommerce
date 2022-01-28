@@ -3,19 +3,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import {CustomerListComponent} from './customer-list/customer-list.component';
  import { OrderListComponent } from "./order-list/order-list.component";
-// import {OrderEditComponent} from "./order-edit/order-edit.component"
+ import {OrderEditComponent} from "./order-edit/order-edit.component"
 // import { CustomersComponent } from "./customers/customers.component";
 import { CustomerEditComponent } from "./customer-edit/customer-edit.component";
 import { ProductListComponent } from "./product-list/product-list.component";
-// import { EditProductComponent } from "./edit-product/edit-product.component";
+import { ProductEditComponent } from "./product-edit/product-edit.component";
 
 const routes: Routes = [
   { path: 'order-list', component: OrderListComponent},
-  // {path: 'order-edit', component: OrderEditComponent},
+   {path: 'order-edit', component: OrderEditComponent},
    {path: 'customer-list', component:CustomerListComponent},
    {path: 'customer-edit', component:CustomerEditComponent},
    {path: 'product-list', component:ProductListComponent},
-  // {path: 'edit-product', component:EditProductComponent},
+    {path: 'product-edit', component:ProductEditComponent},
   { path: '', component: DashboardComponent },
 ];
 

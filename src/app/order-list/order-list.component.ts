@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import {CustomerListComponent} from '../customer-list/customer-list.component';
 
 @Component({
   selector: 'app-order-list',
@@ -9,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class OrderListComponent implements OnInit {
   private apiURL = environment.apiURL;
-
+ 
   orders: Array<any> = [];
   options: any;
 
@@ -29,11 +31,11 @@ export class OrderListComponent implements OnInit {
     );
   }
  deleteOrder(id: string) {
-    this.http.get<any>(this.apiURL + 'orders/' + id).subscribe((response) => {
+    this.http.delete<any>(this.apiURL + 'orders/' + id).subscribe((response) => {
       console.log('deleteOrder:', response);
       if (response.status == 'success') {
         console.log('order deleted');
-        this.getorders();
+       this.getorders();
       } else {
         console.log('unable to delete');
     }

@@ -166,11 +166,8 @@ a:hover{
 button:active {
   transform: scale(0.98);
 }
-.form-control input{
-  border: 2px solid;
-  outline: none;
-}
-.form-control:focus{
-  outline: none;
-  border: none;
+.footer{
+  margin-top: 6em;
+  background-color: var(--eight-color);
+  color: #fff;
 }

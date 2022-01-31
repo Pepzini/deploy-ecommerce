@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiURL: 'http://localhost/nini-commerce-api/index.php/'
+  apiURL: 'https://pepzini.github.io/deploy-ecommerce-api/index.php'
 };

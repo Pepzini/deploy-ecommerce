@@ -1,4 +1,4 @@
-<div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <div class="container page-title">
         <div class="row">
             <div class="col-md-3">
@@ -35,35 +35,24 @@
                                     <td>{{ product.product_fragrance }}</td>
                                     <td>{{ product.product_origin }}</td>
                                     <td>
-                                        <button  data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal"
-                                            (click)="showProductDetails(product.product_id)">
-                                            Show
-                                        </button>
+                                        <button class="btn btn-outline-primary mb-2 mr-2"
+                                            (click)="showProductDetails(content, product.product_id)">Show</button>
                                         <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal" tabindex="-1"
-                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h2 class="modal-title text-danger" id="exampleModalLabel">
-                                                            Product Details
-                                                        </h2>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body text-danger">
-                                                        Product name : {{ product.product_name }}
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-warning"
-                                                            data-bs-dismiss="modal">
-                                                            Close
-                                                        </button>
-                                                    </div>
-                                                </div>
+                                        <ng-template #content let-modal>
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Product Details</h4>
+                                                <button type="button" class="close" aria-label="Close"
+                                                    (click)="modal.dismiss('Cross click')">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
                                             </div>
-                                        </div>
+                                            <div class="modal-body">
+                                                <p>Product Name: {{product.product_name}}</p>
+                                                <p>Product Fragrance: {{product.product_fragrance}}</p>
+                                                <p>Product Origin: {{product.product_origin}}</p>
+                                                <p>Product Category: {{product.product_category}}</p>
+                                            </div>
+                                        </ng-template>
                                     </td>
                                     <td>
                                         <button data-toggle="tooltip" title="Edit" class="edit-button">
@@ -79,11 +68,9 @@
                         </table>
                     </div>
                 </div>
-                <div class="col-md-12 text-center" *ngIf="!products.length">
-                    <h4>We have no products!!!</h4>
-                </div>
+
             </div>
         </div>
         <!-- end basic table  -->
     </div>
-</div>
+</main>

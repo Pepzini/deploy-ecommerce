@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import {CustomerListComponent} from '../customer-list/customer-list.component';
 
 @Component({
   selector: 'app-order-list',
@@ -35,7 +33,6 @@ export class OrderListComponent implements OnInit {
       console.log('deleteOrder:', response);
       if (response.status == 'success') {
         console.log('order deleted');
-       this.getorders();
       } else {
         console.log('unable to delete');
     }

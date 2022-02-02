@@ -16,7 +16,7 @@
           <label for="inputCustomer" class="form-label">Customer</label>
           <select id="inputCustomer" class="form-control" formControlName="order_customer">
             <option selected>Choose</option>
-            <option *ngFor="let customer of customers; let i = index" [value]="customer.cust_id">
+            <option *ngFor="let customer of customers; let i = index" [value]="customer.cust_name">
               {{ customer.cust_name }}
             </option>
           </select>
@@ -25,7 +25,7 @@
           <label for="inputProduct" class="form-label">Product</label>
           <select id="inputProduct" class="form-control" formControlName="order_product">
             <option selected>Choose</option>
-            <option *ngFor="let product of products" [value]="product.product_id">{{ product.product_name}}</option>
+            <option *ngFor="let product of products" [value]="product.product_name">{{ product.product_name}}</option>
           </select>
         </div>
         <div class="col-12">

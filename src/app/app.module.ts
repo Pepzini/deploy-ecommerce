@@ -16,6 +16,8 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { OrderEditComponent } from './order-edit/order-edit.component';
 import { FooterComponent } from './footer/footer.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -35,9 +37,11 @@ import { FooterComponent } from './footer/footer.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
+  // exports: [ProductListComponent],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, ProductListComponent, CustomerListComponent, OrderListComponent]
 })
 export class AppModule { }

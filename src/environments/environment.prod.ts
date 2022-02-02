@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  apiURL: 'https://github.com/Pepzini/deploy-ecommerce-api/'
+  appURL: 'https://pepzini.github.io/deploy-ecommerce/',
+  apiURL: 'https://tulabyte.net/deployapibynini/'
 };

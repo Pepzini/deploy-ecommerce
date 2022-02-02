@@ -19,7 +19,9 @@
 body {
   font-size: .875rem;
 }
-
+main{
+  margin: 1em 1em 5em 1em;
+}
 .fas {
   width: 16px;
   height: 16px;
@@ -126,7 +128,8 @@ nav{
   margin: 2em 0;
 }
 #page-forms{
-  margin: 0 2em;
+  margin: 1em 4em 4em 8em;
+  
 }
 #page-buttons{
   position: absolute;
@@ -166,8 +169,4 @@ a:hover{
 button:active {
   transform: scale(0.98);
 }
-.footer{
-  margin-top: 6em;
-  background-color: var(--eight-color);
-  color: #fff;
-}
+

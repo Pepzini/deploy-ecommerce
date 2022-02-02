@@ -55,16 +55,16 @@
                   <td>{{customer.cust_name}}</td>
                   <td>{{customer.cust_email}}</td>
                   <td>{{customer.cust_phone}}</td>
-                  <td>{{customer.cust_address}}</td>
-                 
+                  <td>{{customer.cust_address}}</td>     
                 </tr>
               </tbody>
+              
             </table>
+            <div class="col-md-12 text-center" *ngIf="!customers.length">
+              <h4>We have no customers!!!!</h4>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-12 text-center" *ngIf="!customers.length">
-        <h4>We have no customers!!!!</h4>
       </div>
     </div>
     <div class="col-sm-4">
@@ -78,11 +78,12 @@
                   <td>{{ product.product_name }}</td>
               </tbody>
             </table>
+            <div class="col-md-12 text-center" *ngIf="!products.length">
+              <h4>We have no products!!!</h4>
+            </div>
           </div>
         </div>
-        <div class="col-md-12 text-center" *ngIf="!products.length">
-          <h4>We have no products!!!</h4>
-        </div>
+        
       </div>
     </div>
   </div>

@@ -28,15 +28,18 @@ export class OrderListComponent implements OnInit {
       }
     );
   }
- deleteOrder(id: string) {
-    this.http.delete<any>(this.apiURL + 'orders/' + id).subscribe((response) => {
-      console.log('deleteOrder:', response);
-      if (response.status == 'success') {
-        console.log('order deleted');
-      } else {
-        console.log('unable to delete');
-    }
-  });
+  deleteOrder(id: string) {
+    this.http
+      .delete<any>(this.apiURL + 'orders/' + id)
+      .subscribe((response) => {
+        console.log('delete orders', response);
+        if (response.status == 'success') {
+          console.log('product deleted');
+          this.getorders();
+        } else {
+          console.log('unable to delete');
+        }
+      });
   }
   ngOnInit(): void {
     this.getorders();

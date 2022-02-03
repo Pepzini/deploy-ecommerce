@@ -17,6 +17,8 @@ export class ProductEditComponent implements OnInit {
     product_origin: new FormControl(''),
     product_fragrance: new FormControl(''),
     product_category: new FormControl(''),
+    product_price: new FormControl(''),
+    product_details: new FormControl(''),
   });
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {}
   //add product to the list

@@ -30,7 +30,7 @@ export class CustomerEditComponent implements OnInit {
         response => {
           console.log('getCustomers:', response);
           if (response.status == 'success') {
-            this.router.navigateByUrl('/customers-list');
+            this.router.navigateByUrl('/customer-list');
           }
         },
         error => {

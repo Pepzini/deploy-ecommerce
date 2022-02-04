@@ -13,6 +13,11 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
 import { CustomerEditComponent } from './customer-edit/customer-edit.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ProductEditComponent } from './product-edit/product-edit.component';
+import { OrderEditComponent } from './order-edit/order-edit.component';
+import { FooterComponent } from './footer/footer.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -22,16 +27,21 @@ import { ProductListComponent } from './product-list/product-list.component';
     CustomerListComponent,
     CustomerEditComponent,
     OrderListComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductEditComponent,
+    OrderEditComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
+  // exports: [ProductListComponent],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, ProductListComponent, CustomerListComponent, OrderListComponent]
 })
 export class AppModule { }

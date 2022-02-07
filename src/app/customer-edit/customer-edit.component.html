@@ -13,15 +13,15 @@
     <form class="row g-3" id="page-forms" [formGroup]="customerForm" (ngSubmit)="addCustomer()">
         <div class="col-md-12">
             <label for="inputName" class="form-label">Full-Name</label>
-            <input type="text" class="form-control" id="inputName" formControlName="cust_name">
+            <input type="text" placeholder="Surname first" class="form-control" id="inputName" formControlName="cust_name">
         </div>
         <div class="col-md-6">
             <label for="inputEmail" class="form-label">Email</label>
-            <input type="text" class="form-control" id="inputEmail" formControlName="cust_email">
+            <input type="text" placeholder="example@gmail.com" class="form-control" id="inputEmail" formControlName="cust_email">
         </div>
         <div class="col-md-6">
             <label for="inputNumber" class="form-label">Phone Number</label>
-            <input type="number" class="form-control" id="inputNumber" formControlName="cust_phone">
+            <input type="number" placeholder="+234" class="form-control" id="inputNumber" formControlName="cust_phone">
         </div>
         <!-- <div class="col-md-6">
             <label for="inputState" class="form-label">State</label>
@@ -29,7 +29,7 @@
           </div> -->
         <div class="col-md-12">
             <label for="inputAddress" class="form-label">Address</label>
-            <input type="text" class="form-control" id="inputAddress" formControlName="cust_address">
+            <input type="text" placeholder="123, New York" class="form-control" id="inputAddress" formControlName="cust_address">
         </div>
         <div class="col-md-6">
             <button id="buttom-buttons" class="cancel-button">Cancel</button>

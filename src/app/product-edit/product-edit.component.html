@@ -11,30 +11,30 @@
             </div>
         </div>
     </div>
-    <form class="row g-3" [formGroup]="productForm" (ngSubmit)="addProduct()">
+    <form class="row g-3"  id="page-forms" [formGroup]="productForm" (ngSubmit)="addProduct()">
         <div class="col-md-12">
             <label for="inputName" class="form-label">Name</label>
-            <input type="text" class="form-control" id="inputName" formControlName="product_name">
+            <input type="text" placeholder="Product name" class="form-control" id="inputName" formControlName="product_name">
         </div>
         <div class="col-md-6">
             <label for="inputCategory" class="form-label">Category</label>
-            <input type="text" class="form-control" id="inputCategory" formControlName="product_category">
+            <input type="text" placeholder="E.g Double thread" class="form-control" id="inputCategory" formControlName="product_category">
         </div>
         <div class="col-md-6">
             <label for="inputOrigin" class="form-label">Origin</label>
-            <input type="text" class="form-control" id="inputText" formControlName="product_origin">
+            <input type="text" placeholder="E.g. USA" class="form-control" id="inputText" formControlName="product_origin">
         </div>
         <div class="col-md-6">
             <label for="inputPrice" class="form-label">Price</label>
-            <input type="text" class="form-control" id="inputPrice" formControlName="product_price">
+            <input type="text" placeholder="NGN" class="form-control" id="inputPrice" formControlName="product_price">
         </div>
         <div class="col-md-6">
             <label for="inputFragrance" class="form-label">Fragrance</label>
-            <input type="text" class="form-control" id="inputAddress" formControlName="product_fragrance">
+            <input type="text" placeholder="E.g. Lavender" class="form-control" id="inputAddress" formControlName="product_fragrance">
         </div>
         <div class="col-md-12">
             <label for="inputDetails" class="form-label">Details of your products</label>
-            <textarea class="form-control" id="inputDetails" formControlName="product_details"></textarea>
+            <textarea class="form-control" placeholder="Write something...." id="inputDetails" formControlName="product_details"></textarea>
         </div>
         <div class="col-md-6">
             <button id="buttom-buttons" class="cancel-button">Cancel</button>

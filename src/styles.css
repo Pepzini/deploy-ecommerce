@@ -1,10 +1,5 @@
-.card {
-  padding: 10px;
-  margin: 20px 10px;
-  box-shadow: 9px 6px 20px 0px rgba(97, 86, 86, 0.69);
-  -webkit-box-shadow: 9px 6px 60px 0px rgba(97, 86, 86, 0.69);
-  -moz-box-shadow: 9px 6px 60px 0px rgba(97, 86, 86, 0.69);
-}
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
 
 :root{
   --first-color: #e0aaff;
@@ -18,6 +13,7 @@
 }
 body {
   font-size: .875rem;
+  font-family: 'Muli', sans-serif;
 }
 
 .fas {
@@ -111,23 +107,29 @@ nav{
   background-color: #0d041d;
 }
 
-.form-control-dark {
-  color: #fff;
-  background-color: var(--eight-color);
-  border-radius: 5px;
+.card {
+  padding: 10px;
+  margin: 20px 10px;
+  box-shadow: 9px 6px 20px 0px rgba(97, 86, 86, 0.69);
+  -webkit-box-shadow: 9px 6px 60px 0px rgba(97, 86, 86, 0.69);
+  -moz-box-shadow: 9px 6px 60px 0px rgba(97, 86, 86, 0.69);
 }
 
-.form-control-dark:focus {
-  border-color: transparent;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
-}
 .page-title{
   position: relative;
   margin: 2em 0;
 }
 #page-forms{
-  margin: 1em 4em 4em 8em;
-  
+  margin: 1em 2em 12em 1em
+}
+.form-control{
+  border: 1px solid var(--seventh-color);
+  background-color: transparent;
+  color: var(--six-color);
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 0.5em;
+  margin-bottom: 1em;
 }
 #page-buttons{
   position: absolute;
@@ -167,4 +169,45 @@ a:hover{
 button:active {
   transform: scale(0.98);
 }
+/* style for modal */
+.modal-body{
+  font-size: 17px;
+  padding: 1em;
+  color: #06010e;
+}
+/* action buttons such as delete and edit */
 
+.add-action {
+  display: flex;
+  justify-content: end;
+  margin-right: auto;
+}
+.add-action a {
+  text-decoration: none;
+  text-align: center;
+  background: var(--six-color);
+  padding: 16px;
+  color: #fff;
+  border-radius: 2px;
+}
+/* styling for table contents thtoight out the application */
+
+td button {
+  margin-right: 10px;
+  border: none;
+}
+td button.edit-button {
+  background-color: var(--six-color);
+  color: #fff;
+}
+td button.delete-button {
+  background-color: #dc141e;
+  color: #fff;
+}
+td button.details-button {
+  background-color: var(--six-color);
+  color: #fff;
+  width: 100px;
+  padding: 10px;
+  border-radius: 5px;
+}

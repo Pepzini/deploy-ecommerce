@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-product-list',
@@ -13,8 +15,18 @@ export class ProductListComponent implements OnInit {
   private apiURL = environment.apiURL;
   products: Array<any> = [];
   content : any = {};
+  form : any = {};
+  formContent : any = {};
   options: any;
-  constructor(private http: HttpClient, private modalService: NgbModal) {}
+  productForm = new FormGroup({
+    product_name: new FormControl(''),
+    product_origin: new FormControl(''),
+    product_fragrance: new FormControl(''),
+    product_category: new FormControl(''),
+    product_price: new FormControl(''),
+    product_details: new FormControl(''),
+  });
+  constructor(private http: HttpClient, private modalService: NgbModal, private router: Router, private route: ActivatedRoute) {}
   //get products from the api
   getProducts() {
     console.log('List of products!');
@@ -57,6 +69,26 @@ export class ProductListComponent implements OnInit {
       }
     );
   }
+  showProductEditForm(form : any, id: string) {
+    this.modalService.open(form, { centered: true });
+  }
+  editProduct() {
+    console.warn(this.productForm.value);
+    this.http
+      .put<any>(environment.apiURL + 'products', { product: this.productForm.value })
+      .subscribe(
+        (response) => {
+          console.log('edit:', response);
+          if (response.status == 'success') {
+            this.router.navigateByUrl('/product-list');
+          }
+        },
+        (error) => {
+          console.log('Server Error:', error);
+        }
+      );
+  }
+
   ngOnInit(): void {
     this.getProducts();
   }

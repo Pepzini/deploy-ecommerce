@@ -35,7 +35,7 @@
                                     <td>{{ product.product_fragrance }}</td>
                                     <td>{{ product.product_origin }}</td>
                                     <td>
-                                        <button class="btn btn-outline-primary mb-2 mr-2"
+                                        <button class="details-button"
                                             (click)="showProductDetails(content, product.product_id)">Show</button>
                                         <!-- Modal -->
                                         <ng-template #content let-modal>
@@ -47,21 +47,81 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <p>Product Name: {{product.product_name}}</p>
-                                                <p>Product Fragrance: {{product.product_fragrance}}</p>
-                                                <p>Product Origin: {{product.product_origin}}</p>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <p>Product Name: {{product.product_name}}</p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>Product Fragrance: {{product.product_fragrance}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <p>Product Origin: {{product.product_origin}}</p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>Product Price: {{product.product_price}}</p>
+                                                    </div>
+                                                </div>
                                                 <p>Product Category: {{product.product_category}}</p>
+                                                <p>Product Description: {{product.product_details}}</p>
                                             </div>
+
                                         </ng-template>
                                     </td>
                                     <td>
-                                        <button data-toggle="tooltip" title="Edit" class="edit-button">
+                                        <button data-toggle="tooltip" title="Edit" class="edit-button"
+                                            (click)="showProductEditForm(form,product.product_id)">
                                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         </button>
                                         <button data-toggle="tooltip" title="Trash" class="delete-button">
                                             <i class="fa fa-trash-o" aria-hidden="true"
                                                 (click)="deleteProduct(product.product_id)"></i>
                                         </button>
+                                        <ng-template #form let-modal>
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Product Details</h4>
+                                                <button type="button" class="close" aria-label="Close"
+                                                    (click)="modal.dismiss('Cross click')">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form class="row g-3" [formGroup]="productForm" (ngSubmit)="editProduct()">
+                                                    <div class="col-md-12">
+                                                        <label for="inputName" class="form-label">Name</label>
+                                                        <input type="text" class="form-control" id="inputName" formControlName="product_name" required>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="inputCategory" class="form-label">Category</label>
+                                                        <input type="text" placeholder="E.g Double thread" class="form-control" id="inputCategory" formControlName="product_category">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="inputOrigin" class="form-label">Origin</label>
+                                                        <input type="text" placeholder="E.g. USA" class="form-control" id="inputOrigin" formControlName="product_origin">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="inputPrice" class="form-label">Price</label>
+                                                        <input type="text" placeholder="NGN" class="form-control" id="inputPrice" formControlName="product_price">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="inputFragrance" class="form-label">Fragrance</label>
+                                                        <input type="text" placeholder="E.g. Lavender" class="form-control" id="inputAddress" formControlName="product_fragrance">
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <label for="inputDetails" class="form-label">Details of your products</label>
+                                                        <textarea class="form-control" placeholder="Write something...." id="inputDetails" formControlName="product_details"></textarea>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <button id="buttom-buttons" class="cancel-button">Cancel</button>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <button type="submit" id="buttom-buttons" class="submit-button">Submit</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                        </ng-template>
                                     </td>
                                 </tr>
                             </tbody>

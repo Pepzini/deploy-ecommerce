@@ -34,13 +34,47 @@
                                     <td>{{order.order_customer}}</td>
                                     <td>{{order.order_product}}</td>
                                     <td>{{order.order_quantity}}</td>
-                                    <td><button data-toggle="tool-tip" title="View Details"
-                                            class="details-button">Details</button></td>
+                                    <td>
+                                        <button class="details-button"
+                                            (click)="showOrderDetails(content, order.order_id)">Show</button>
+                                        <!-- Modal -->
+                                        <ng-template #content let-modal>
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Product Details</h4>
+                                                <button type="button" class="close" aria-label="Close"
+                                                    (click)="modal.dismiss('Cross click')">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <p>Order Date: {{order.order_date}}</p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>Customer: {{order.order_customer}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <p>Product Name: {{order.order_product}}</p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>Product Price: {{order.order_price}}</p>
+                                                    </div>
+                                                </div>
+                                                <p>Product Category: {{order.order_quantity}}</p>
+                                                <p>Product Description: {{order.order_remarks}}</p>
+
+                                            </div>
+                                        </ng-template>
+                                    </td>
                                     <td>
                                         <button data-toggle="tooltip" title="Edit" class="edit-button"><i
                                                 class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                                         <button data-toggle="tooltip" title="Trash" class="delete-button"><i
-                                                class="fa fa-trash-o" aria-hidden="true" (click)="deleteOrder(order.order_id)"></i></button>
+                                                class="fa fa-trash-o" aria-hidden="true"
+                                                (click)="deleteOrder(order.order_id)"></i></button>
                                     </td>
                                 </tr>
                             </tbody>

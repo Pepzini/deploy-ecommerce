@@ -42,6 +42,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   // exports: [ProductListComponent],
   providers: [],
-  bootstrap: [AppComponent, ProductListComponent, CustomerListComponent, OrderListComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

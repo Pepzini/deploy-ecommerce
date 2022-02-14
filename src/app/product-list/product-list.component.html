@@ -71,14 +71,14 @@
                                     </td>
                                     <td>
                                         <button data-toggle="tooltip" title="Edit" class="edit-button"
-                                            (click)="showProductEditForm(form,product.product_id)">
+                                            (click)="showProductEditForm(formModal, product.product_id)">
                                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         </button>
                                         <button data-toggle="tooltip" title="Trash" class="delete-button">
                                             <i class="fa fa-trash-o" aria-hidden="true"
                                                 (click)="deleteProduct(product.product_id)"></i>
                                         </button>
-                                        <ng-template #form let-modal>
+                                        <ng-template #formModal let-modal>
                                             <div class="modal-header">
                                                 <h4 class="modal-title">Product Details</h4>
                                                 <button type="button" class="close" aria-label="Close"

@@ -15,7 +15,7 @@ export class ProductListComponent implements OnInit {
   private apiURL = environment.apiURL;
   products: Array<any> = [];
   content : any = {};
-  form : any = {};
+  formModal : any = {};
   formContent : any = {};
   options: any;
   productForm = new FormGroup({
@@ -69,8 +69,19 @@ export class ProductListComponent implements OnInit {
       }
     );
   }
-  showProductEditForm(form : any, id: string) {
-    this.modalService.open(form, { centered: true });
+  showProductEditForm(formModal : any, id: string) {
+    this.modalService.open(formModal, { centered: true });
+    this.http.get<any>(this.apiURL + 'products/' + id).subscribe(
+      (response) => {
+        console.log('showProductDetails:', response);
+        if (response.status == 'success') {
+          this.formModal = response.product;
+        }
+      },
+      (error) => {
+        console.log('Server Error:', error);
+      }
+    );
   }
   editProduct() {
     console.warn(this.productForm.value);

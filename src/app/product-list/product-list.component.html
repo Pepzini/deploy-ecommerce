@@ -36,8 +36,21 @@
                                     <td>{{ product.product_origin }}</td>
                                     <td>
                                         <button class="details-button"
-                                            (click)="showProductDetails(content, product.product_id)">Show</button>
-                                        <!-- Modal -->
+                                            (click)="showProductDetails(content)">Show
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button data-toggle="tooltip" title="Edit" class="edit-button"
+                                            (click)="showProductEditForm(formModal, product)">
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                        </button>
+                                        <button data-toggle="tooltip" title="Trash" class="delete-button">
+                                            <i class="fa fa-trash-o" aria-hidden="true"
+                                                (click)="deleteProduct(product.product_id)"></i>
+                                        </button>
+                                    </td>
+                                    
+                                        <!-- Details Modal -->
                                         <ng-template #content let-modal>
                                             <div class="modal-header">
                                                 <h4 class="modal-title">Product Details</h4>
@@ -66,21 +79,13 @@
                                                 <p>Product Category: {{product.product_category}}</p>
                                                 <p>Product Description: {{product.product_details}}</p>
                                             </div>
-
+    
                                         </ng-template>
-                                    </td>
-                                    <td>
-                                        <button data-toggle="tooltip" title="Edit" class="edit-button"
-                                            (click)="showProductEditForm(formModal, product.product_id)">
-                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                        </button>
-                                        <button data-toggle="tooltip" title="Trash" class="delete-button">
-                                            <i class="fa fa-trash-o" aria-hidden="true"
-                                                (click)="deleteProduct(product.product_id)"></i>
-                                        </button>
+                                        
+                                        <!-- Edit Modal -->
                                         <ng-template #formModal let-modal>
                                             <div class="modal-header">
-                                                <h4 class="modal-title">Product Details</h4>
+                                                <h4 class="modal-title">Edit Product Details</h4>
                                                 <button type="button" class="close" aria-label="Close"
                                                     (click)="modal.dismiss('Cross click')">
                                                     <span aria-hidden="true">&times;</span>
@@ -113,7 +118,7 @@
                                                         <textarea class="form-control" placeholder="Write something...." id="inputDetails" formControlName="product_details"></textarea>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <button id="buttom-buttons" class="cancel-button">Cancel</button>
+                                                        <button id="buttom-buttons" class="cancel-button" (click)="modal.dismiss('Cross click')">Cancel</button>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <button type="submit" id="buttom-buttons" class="submit-button">Submit</button>
@@ -122,7 +127,6 @@
                                             </div>
 
                                         </ng-template>
-                                    </td>
                                 </tr>
                             </tbody>
                         </table>

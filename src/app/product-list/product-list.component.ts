@@ -19,12 +19,13 @@ export class ProductListComponent implements OnInit {
   formContent : any = {};
   options: any;
   productForm = new FormGroup({
-    product_name: new FormControl(''),
-    product_origin: new FormControl(''),
-    product_fragrance: new FormControl(''),
-    product_category: new FormControl(''),
-    product_price: new FormControl(''),
-    product_details: new FormControl(''),
+    product_id: new FormControl(),
+    product_name: new FormControl(),
+    product_origin: new FormControl(),
+    product_fragrance: new FormControl(),
+    product_category: new FormControl(),
+    product_price: new FormControl(),
+    product_details: new FormControl(),
   });
   constructor(private http: HttpClient, private modalService: NgbModal, private router: Router, private route: ActivatedRoute) {}
   //get products from the api
@@ -55,34 +56,23 @@ export class ProductListComponent implements OnInit {
         }
       });
   }
-  showProductDetails(content : any, id: string) {
+  showProductDetails(content : any) {
     this.modalService.open(content, { centered: true });
-    this.http.get<any>(this.apiURL + 'products/' + id).subscribe(
-      (response) => {
-        console.log('showProductDetails:', response);
-        if (response.status == 'success') {
-          this.content = response.product;
-        }
-      },
-      (error) => {
-        console.log('Server Error:', error);
-      }
-    );
   }
-  showProductEditForm(formModal : any, id: string) {
+
+  showProductEditForm(formModal : any, product: any) {
     this.modalService.open(formModal, { centered: true });
-    this.http.get<any>(this.apiURL + 'products/' + id).subscribe(
-      (response) => {
-        console.log('showProductDetails:', response);
-        if (response.status == 'success') {
-          this.formModal = response.product;
-        }
-      },
-      (error) => {
-        console.log('Server Error:', error);
-      }
-    );
+    this.productForm.patchValue({
+      product_id: product.product_id,
+      product_name: product.product_name,
+      product_category: product.product_category,
+      product_origin: product.product_origin,
+      product_price: product.product_price,
+      product_fragrance: product.product_fragrance,
+      product_details: product.product_details
+    });
   }
+
   editProduct() {
     console.warn(this.productForm.value);
     this.http

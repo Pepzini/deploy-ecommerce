@@ -7,6 +7,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import { AuthGuard } from './auth/auth.guard';
+import { AuthService } from './auth/auth.service';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
@@ -17,6 +20,8 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
 import { OrderEditComponent } from './order-edit/order-edit.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -30,7 +35,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ProductListComponent,
     ProductEditComponent,
     OrderEditComponent,
-    FooterComponent
+    FooterComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +48,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule
   ],
   // exports: [ProductListComponent],
-  providers: [],
-  bootstrap: [AppComponent, ProductListComponent, CustomerListComponent, OrderListComponent]
+  providers: [AuthService, AuthGuard],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

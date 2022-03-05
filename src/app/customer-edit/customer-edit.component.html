@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    <form class="row g-3" id="page-forms" [formGroup]="customerForm" (ngSubmit)="addCustomer()">
+    <form class="row g-3"[formGroup]="customerForm" (ngSubmit)="addCustomer()">
         <div class="col-md-12">
             <label for="inputName" class="form-label">Full-Name</label>
             <input type="text" class="form-control" id="inputName" formControlName="cust_name">

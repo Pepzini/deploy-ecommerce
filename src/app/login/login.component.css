@@ -1,0 +1,69 @@
+p {
+  color: #b3b3b3;
+  font-weight: 300;
+}
+.content {
+  padding: 7rem 0;
+}
+h2 {
+  font-size: 30px;
+}
+.half,
+.half .container > .row {
+  overflow: hidden;
+  height: 100vh;
+  min-height: 500px;
+}
+@media (max-width: 991.98px) {
+  .half .bg {
+    height: 200px;
+  }
+}
+.half .contents {
+  background: #f6f7fc;
+}
+.half .bg,
+.half .contents {
+  width: 50%;
+}
+@media (max-width: 1199.98px) {
+  .half .bg,
+  .half .contents {
+    width: 100%;
+  }
+}
+.half .bg .form-control,
+.half .contents .form-control {
+  border: none;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  height: 50px;
+  background: #e2dfdf;
+}
+.half .bg .form-control:active,
+.half .bg .form-control:focus,
+.half .contents .form-control:active,
+.half .contents .form-control:focus {
+  outline: 0;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+.half .bg {
+  background-size: cover;
+  background-position: center;
+}
+.half .btn {
+  width: 100%;
+  height: 54px;
+  font-size: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: #9100CA;
+  color: #fff;
+}
+form label {
+  font-size: 19px;
+  font-weight: 500;
+  margin: 5px;
+}

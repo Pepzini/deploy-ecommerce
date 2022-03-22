@@ -167,4 +167,24 @@ a:hover{
 button:active {
   transform: scale(0.98);
 }
-
+/* style for delete and edit button */
+.edit-button{
+  background-color: #5a189a;
+  color: #fff;
+  border: none;
+  margin: 2px;
+}
+.delete-button{
+  background-color: #240046;
+  color: #fff;
+  border: none;
+  margin: 2px;
+}
+.details-button{
+  background-color: #5a189a;
+  color: #fff;
+  border-radius: 7px;
+  padding: 10px 15px;
+  border: none;
+  margin: 2px;
+}

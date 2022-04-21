@@ -8,6 +8,7 @@ import { OrderEditComponent } from './order-edit/order-edit.component';
 import { CustomerEditComponent } from './customer-edit/customer-edit.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 import { AuthGuard } from './auth/auth.guard';
 import { LoginComponent } from './login/login.component';
 
@@ -19,6 +20,8 @@ const routes: Routes = [
   { path: 'product-list', component: ProductListComponent },
   { path: 'product-edit', component: ProductEditComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'sign-up', component: SignUpComponent },
+  { path: 'dashboard', component: DashboardComponent},
   { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '' }
 ];

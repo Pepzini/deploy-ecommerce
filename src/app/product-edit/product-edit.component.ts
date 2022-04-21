@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-edit',
@@ -20,7 +21,11 @@ export class ProductEditComponent implements OnInit {
     product_price: new FormControl(''),
     product_details: new FormControl(''),
   });
-  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {}
+  constructor(private http: HttpClient,
+     private router: Router, 
+     private route: ActivatedRoute,
+     private toastr: ToastrService
+     ) {}
   //add product to the list
   addProduct() {
     console.warn(this.productForm.value);
@@ -30,10 +35,12 @@ export class ProductEditComponent implements OnInit {
         (response) => {
           console.log('getproducts:', response);
           if (response.status == 'success') {
+            this.toastr.success(response.message);
             this.router.navigateByUrl('/product-list');
           }
         },
         (error) => {
+          this.toastr.error(error.error.message);
           console.log('Server Error:', error);
         }
       );

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-order-list',
@@ -32,7 +33,8 @@ export class OrderListComponent implements OnInit {
     private http: HttpClient,
     private modalService: NgbModal,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastr: ToastrService
   ) {}
   getProducts() {
     console.log('List of products!');
@@ -70,9 +72,11 @@ export class OrderListComponent implements OnInit {
         console.log('getorders:', response);
         if (response.status == 'success') {
           this.orders = response.orders;
+          this.toastr.success(response.message);
         }
       },
       (error) => {
+        this.toastr.error('Error loading orders!');
         console.log('Server Error:', error);
       }
     );
@@ -116,8 +120,10 @@ export class OrderListComponent implements OnInit {
         console.log('delete orders', response);
         if (response.status == 'success') {
           console.log('product deleted');
+          this.toastr.success('Order deleted successfully!');
           this.getOrders();
         } else {
+          this.toastr.error('Error deleting order!');
           console.log('unable to delete');
         }
       });

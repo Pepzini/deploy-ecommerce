@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-customer-list',
@@ -23,7 +24,7 @@ customerForm = new FormGroup({
   cust_phone: new FormControl(),
   cust_email: new FormControl(),
 });
-  constructor(private http: HttpClient, private modalService: NgbModal) {}
+  constructor(private http: HttpClient, private modalService: NgbModal,  private toastrService: ToastrService) {}
   //get customers from the api
   getCustomers() {
     console.log('List of customers!');
@@ -32,9 +33,11 @@ customerForm = new FormGroup({
         console.log('getCustomers:', response);
         if (response.status == 'success') {
           this.customers = response.customers;
+          this.toastrService.success(response.message);
         }
       },
       (error) => {
+        this.toastrService.error('Unable to load customers!');
         console.log('Server Error:', error);
       }
     );
@@ -46,6 +49,7 @@ customerForm = new FormGroup({
         console.log('delete customer', response);
         if (response.status == 'success') {
           console.log('customer deleted');
+          this.toastrService.success('Customer deleted successfully!');
           this.getCustomers();
         } else {
           console.log('unable to delete');

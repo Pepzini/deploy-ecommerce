@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-list',
@@ -27,7 +28,11 @@ export class ProductListComponent implements OnInit {
     product_price: new FormControl(),
     product_details: new FormControl(),
   });
-  constructor(private http: HttpClient, private modalService: NgbModal, private router: Router, private route: ActivatedRoute) {}
+  constructor(private http: HttpClient,
+     private modalService: NgbModal,
+     private router: Router,
+    private route: ActivatedRoute,
+    private toastr: ToastrService) { }
   //get products from the api
   getProducts() {
     console.log('List of products!');
@@ -36,9 +41,11 @@ export class ProductListComponent implements OnInit {
         console.log('getProducts:', response);
         if (response.status == 'success') {
           this.products = response.products;
+          this.toastr.success(response.message);
         }
       },
       (error) => {
+        this.toastr.error(error.message);
         console.log('Server Error:', error);
       }
     );
@@ -81,11 +88,13 @@ export class ProductListComponent implements OnInit {
         (response) => {
           console.log('edit:', response);
           if (response.status == 'success') {
+            this.toastr.success(response.message);
             this.modalService.dismissAll();
             this.getProducts();
           }
         },
         (error) => {
+          this.toastr.error(error.message);
           console.log('Server Error:', error);
         }
       );

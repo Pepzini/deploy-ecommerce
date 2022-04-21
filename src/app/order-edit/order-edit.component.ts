@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-order-edit',
@@ -19,7 +20,11 @@ export class OrderEditComponent implements OnInit {
     order_quantity: new FormControl(''),
     order_remarks: new FormControl(''),
   });
-  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {}
+  constructor(private http: HttpClient,
+     private router: Router,
+     private route: ActivatedRoute,
+     private toastr: ToastrService
+     ) {}
   //get products from the api
   getProducts() {
     console.log('List of products!');
@@ -58,10 +63,12 @@ export class OrderEditComponent implements OnInit {
         (response) => {
           console.log('addOrders:', response);
           if (response.status == 'success') {
+            this.toastr.success('Order added successfully!');
             this.router.navigateByUrl('/order-list');
           }
         },
         (error) => {
+          this.toastr.error('Unable to edit your order, please try again!');
           console.log('Server Error:', error);
         }
       );

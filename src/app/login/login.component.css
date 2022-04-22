@@ -38,6 +38,7 @@ h2 {
 @media screen and (max-width: 900.98px) {
     .half .bg {
         display: none;
+        height: 100vh;
       }
 }
 .half .bg .form-control,

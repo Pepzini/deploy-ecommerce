@@ -20,7 +20,6 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
 import { OrderEditComponent } from './order-edit/order-edit.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
@@ -28,6 +27,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -41,9 +41,9 @@ import { CommonModule } from '@angular/common';
     ProductEditComponent,
     OrderEditComponent,
     FooterComponent,
-    RegisterComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

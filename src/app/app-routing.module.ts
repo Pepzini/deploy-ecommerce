@@ -11,6 +11,7 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { AuthGuard } from './auth/auth.guard';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: 'order-list', component: OrderListComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'customer-edit', component: CustomerEditComponent },
   { path: 'product-list', component: ProductListComponent },
   { path: 'product-edit', component: ProductEditComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'dashboard', component: DashboardComponent},

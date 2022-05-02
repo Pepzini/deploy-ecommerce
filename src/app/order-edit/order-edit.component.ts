@@ -68,7 +68,7 @@ export class OrderEditComponent implements OnInit {
           }
         },
         (error) => {
-          this.toastr.error('Unable to edit your order, please try again!');
+          this.toastr.error('Unable to add your order, please try again!');
           console.log('Server Error:', error);
         }
       );

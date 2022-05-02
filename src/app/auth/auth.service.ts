@@ -33,4 +33,9 @@ export class AuthService {
       this.router.navigate(['/']);
     }
   }
+ //get user
+  getUser() {
+    return this.loggedIn.asObservable();
+  }
+  
 }

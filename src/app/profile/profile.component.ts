@@ -30,17 +30,30 @@ export class ProfileComponent implements OnInit {
     private route: ActivatedRoute,
     private toastr: ToastrService
     ) {
-      this.user = this.authService.getUser();
+      this.user = this.authService.getCurrentUser();
+      console.log('CurrentUser:', this.user);
+    
     }
-  //get current user from the api
-  getUser(id: number) {
-    console.log('getUser:', id);
-    this.http.get<any>(this.apiURL + 'users/' + id).subscribe(
+ 
+
+  //display user
+  displayUser() {
+    this.profileForm.patchValue({
+      user_id: this.user.user_id,
+      user_name: this.user.user_name,
+      user_email: this.user.user_email,
+      user_phone: this.user.user_phone,
+      user_address: this.user.user_address,
+    });
+  }
+  //update user
+  updateUser() {
+    this.http.put<any>(this.apiURL + 'users/', {user: this.profileForm.value}).subscribe(
       (response) => {
-        console.log('getUser:', response);
+        console.log('user:', response);
         if (response.status == 'success') {
-          this.user = response.user;
           this.toastr.success(response.message);
+          this.router.navigate(['/']);
         }
       },
       (error) => {
@@ -50,7 +63,9 @@ export class ProfileComponent implements OnInit {
     );
   }
   ngOnInit(): void {
-   this.getUser(this.user.user_id);
+  //  this.getUser(this.user.user_id);
+    this.displayUser();
+    console.log('user:', this.user);
   }
 
 }

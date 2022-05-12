@@ -22,12 +22,15 @@
                 <a routerLink="/sign-up">Sign Up</a>
               </p>
             </div>
-            <!-- Error messages -->
-            <!-- <div *ngIf="loginForm.error" class="alert alert-danger">
-              <strong>Error!</strong> {{error}}
-            </div>  -->
           </div>
         </div>
       </div>
     </div>
 </div>
+<ngx-spinner 
+size="medium"
+color="#fff"
+[fullScreen]="true"
+type="timer">
+<p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>

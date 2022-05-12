@@ -1,8 +1,16 @@
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <div class="user-logged-in">
+    <div class="card" style="background-color: #7337ac; color: #fff">
+      <div class="card-body">
+        <h3 class="card-title" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+          Hi {{user.user_name}}, get your business in order.</h3>
+      </div>
+    </div>
+  </div>
   <div class="app-summary">
     <div class="row">
       <div class="col-sm-4">
-        <div class="card" style="background-color: #c77dff; color: #fff">
+        <div class="card" style="background-color: #9739e9; color: #fff">
           <div class="card-body">
             <h5 class="card-title">Total Customers</h5>
             <h3 class="card-text">
@@ -12,7 +20,7 @@
         </div>
       </div>
       <div class="col-sm-4">
-        <div class="card" style="background-color: #b479e6; color: #fff;">
+        <div class="card" style="background-color: #955ac9; color: #fff;">
           <div class="card-body">
             <h5 class="card-title">Total Products</h5>
             <h3 class="card-text">
@@ -55,10 +63,10 @@
                   <td>{{customer.cust_name}}</td>
                   <td>{{customer.cust_email}}</td>
                   <td>{{customer.cust_phone}}</td>
-                  <td>{{customer.cust_address}}</td>     
+                  <td>{{customer.cust_address}}</td>
                 </tr>
               </tbody>
-              
+
             </table>
             <div class="col-md-12 text-center" *ngIf="!customers.length">
               <h4>We have no customers!!!!</h4>
@@ -83,10 +91,8 @@
             </div>
           </div>
         </div>
-        
+
       </div>
     </div>
   </div>
 </main>
-
-

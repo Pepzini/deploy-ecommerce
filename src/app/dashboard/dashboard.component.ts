@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,12 +11,15 @@ import { environment } from 'src/environments/environment';
 })
 export class DashboardComponent implements OnInit {
   private apiURL = environment.apiURL;
+  user: any = {};
   products: Array<any> = [];
   customers: Array<any> = [];
   orders: Array<any> = [];
   options: any;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService,) {
+    this.user = this.authService.getCurrentUser();
+  }
   //count products from the api
   countProducts() {
     this.http.get<any>(this.apiURL + 'products').subscribe((response) => {
@@ -46,9 +50,16 @@ export class DashboardComponent implements OnInit {
       console.log('countOrders:', this.orders.length);
     });
   }
+  //display current user
+   displayUser() {
+     this.user = this.authService.getCurrentUser();
+      console.log('CurrentUser:', this.user);
+    }
+
   ngOnInit(): void {
     this.countProducts();
     this.countCustomers();
     this.countOrders();
+    this.displayUser();
   }
 }

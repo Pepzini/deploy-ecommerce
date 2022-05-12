@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { FormsModule } from '@angular/forms';
@@ -6,9 +6,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -52,12 +52,14 @@ import { ProfileComponent } from './profile/profile.component';
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
+    NgxSpinnerModule,
     CommonModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
   ],
   // exports: [ProductListComponent],
   providers: [AuthService, AuthGuard],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

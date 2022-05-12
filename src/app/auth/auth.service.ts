@@ -6,7 +6,7 @@ import { User } from './user';
 @Injectable()
 export class AuthService {
   private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-
+  public loggedInUser: any = {};
   get isLoggedIn() {
     return this.loggedIn.asObservable();
   }
@@ -16,14 +16,17 @@ export class AuthService {
   ) {}
 
   login(user: User) {
-    if (user.userName !== '' && user.password !== '' ) {
+    if (user.user_name !== '' && user.password !== '' ) {
       this.loggedIn.next(true);
+      localStorage.setItem('user', JSON.stringify(user));
+      // this.loggedInUser = user;
       this.router.navigate(['/']);
     }
   }
 
   logout() {
     this.loggedIn.next(false);
+    localStorage.removeItem('user');
     this.router.navigate(['/login']);
   }
 
@@ -33,9 +36,20 @@ export class AuthService {
       this.router.navigate(['/']);
     }
   }
- //get user
-  getUser() {
-    return this.loggedIn.asObservable();
+  //get current user from local storage
+  getCurrentUser() {
+    return JSON.parse(localStorage.getItem('user') || '{}');
+  }
+
+  //update current user
+  updateCurrentUser(user: User) {
+    localStorage.setItem('user', JSON.stringify(user));
+    this.loggedInUser = user;
+  }
+
+  //refresh current user
+  refreshCurrentUser() {
+    this.loggedInUser = this.getCurrentUser();
   }
   
 }

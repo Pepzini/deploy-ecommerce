@@ -42,10 +42,10 @@ export class AuthService {
   }
 
   //update current user
-  updateCurrentUser(user: User) {
-    localStorage.setItem('user', JSON.stringify(user));
-    this.loggedInUser = user;
-  }
+  // updateCurrentUser(user: User) {
+  //   localStorage.setItem('user', JSON.stringify(user));
+  //   this.loggedInUser = user;
+  // }
 
   //refresh current user
   refreshCurrentUser() {

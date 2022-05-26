@@ -8,7 +8,8 @@ export class AuthService {
   private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public loggedInUser: any = {};
   get isLoggedIn() {
-    return this.loggedIn.asObservable();
+      console.log("isLoggedIn=",this.loggedIn.asObservable());
+      return this.loggedIn.asObservable();
   }
 
   constructor(
@@ -18,6 +19,7 @@ export class AuthService {
   login(user: User) {
     if (user.user_name !== '' && user.password !== '' ) {
       this.loggedIn.next(true);
+      console.log("loggedin=",this.loggedIn);
       localStorage.setItem('user', JSON.stringify(user));
       // this.loggedInUser = user;
       this.router.navigate(['/']);
@@ -48,8 +50,8 @@ export class AuthService {
   // }
 
   //refresh current user
-  refreshCurrentUser() {
-    this.loggedInUser = this.getCurrentUser();
-  }
+  // refreshCurrentUser() {
+  //   this.loggedInUser = this.getCurrentUser();
+  // }
   
 }

@@ -14,16 +14,16 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
-  { path: 'order-list', component: OrderListComponent },
-  { path: 'order-edit', component: OrderEditComponent },
-  { path: 'customer-list', component: CustomerListComponent },
-  { path: 'customer-edit', component: CustomerEditComponent },
-  { path: 'product-list', component: ProductListComponent },
-  { path: 'product-edit', component: ProductEditComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'order-list', component: OrderListComponent, canActivate: [AuthGuard] },
+  { path: 'order-edit', component: OrderEditComponent, canActivate: [AuthGuard] },
+  { path: 'customer-list', component: CustomerListComponent, canActivate: [AuthGuard] },
+  { path: 'customer-edit', component: CustomerEditComponent, canActivate: [AuthGuard] },
+  { path: 'product-list', component: ProductListComponent, canActivate: [AuthGuard] },
+  { path: 'product-edit', component: ProductEditComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
-  { path: 'dashboard', component: DashboardComponent},
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: 'dashboard' }
 ];
